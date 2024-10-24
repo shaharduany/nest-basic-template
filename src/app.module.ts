@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configurations } from '@/configurations/configurations';
 import { HttpModule } from '@nestjs/axios';
 import { IHttpRequestConfigs } from './common/interfaces/configurations.inteface';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { IHttpRequestConfigs } from './common/interfaces/configurations.inteface
       },
       inject: [ConfigService],
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
