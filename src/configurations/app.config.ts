@@ -1,4 +1,4 @@
-import { NODE_ENVIORNMENTS } from '@app/common/constants/configurations';
+import { NODE_ENVIORNMENTS } from '@app/common/constants/configs.constants';
 import { registerAs } from '@nestjs/config';
 
 export const getAppConfig = () => ({

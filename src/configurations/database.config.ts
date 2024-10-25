@@ -1,5 +1,4 @@
-import { NODE_ENVIORNMENTS } from '@app/common/constants/configurations';
-import { DB_TYPE } from '@app/common/constants/database';
+import { DB_TYPE } from '@app/common/constants/database.constants';
 import { registerAs } from '@nestjs/config';
 
 export const getDatabaseConfig = () => ({
