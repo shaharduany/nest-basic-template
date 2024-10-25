@@ -1,9 +1,9 @@
-export type NODE_ENV = 'development' | 'production' | 'test';
+import { NODE_ENVIORNMENTS } from '../constants/configurations';
 
 export interface IAppConfigurations {
   host: string;
   port: string;
-  env: NODE_ENV;
+  env: NODE_ENVIORNMENTS;
 }
 
 export interface IDbConfigurations {
