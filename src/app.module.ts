@@ -6,6 +6,7 @@ import { configurations } from '@/configurations/configurations';
 import { HttpModule } from '@nestjs/axios';
 import { IHttpRequestConfigs } from './common/interfaces/configurations.inteface';
 import { UsersModule } from './users/users.module';
+import { HealthCheckModule } from './health-check/health-check.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
     }),
     UsersModule,
+    HealthCheckModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,9 +1,13 @@
-import { IConfigurations } from '@/common/interfaces/configurations.inteface';
+import {
+  IConfigurations,
+  NODE_ENV,
+} from '@/common/interfaces/configurations.inteface';
 
 export const configurations = (): IConfigurations => ({
   app: {
     host: process.env.HOST,
     port: process.env.PORT,
+    env: process.env.NODE_ENV as NODE_ENV,
   },
   database: {
     host: process.env.DB_HOST,
