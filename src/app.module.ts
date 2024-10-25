@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { configurations } from '@/configurations/configurations';
+import { configurations } from '@app/configurations/configurations';
 import { HttpModule } from '@nestjs/axios';
-import { IHttpRequestConfigs } from './common/interfaces/configurations.inteface';
+import { IHttpRequestConfigs } from '@app/common/interfaces/configurations.inteface';
 import { UsersModule } from './users/users.module';
 import { HealthCheckModule } from './health-check/health-check.module';
 

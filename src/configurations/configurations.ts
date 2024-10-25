@@ -1,7 +1,7 @@
 import {
   IConfigurations,
   NODE_ENV,
-} from '@/common/interfaces/configurations.inteface';
+} from '@app/common/interfaces/configurations.inteface';
 
 export const configurations = (): IConfigurations => ({
   app: {
