@@ -1,12 +1,4 @@
-import {
-  IConfigurations,
-  NODE_ENV,
-} from '@app/common/interfaces/configurations.inteface';
-import { registerAs } from '@nestjs/config';
-import { appConfigs } from './appConfigs';
-import { databaseConfig } from './databaseConfigs';
+import { appConfig } from './app.config';
+import { databaseConfig } from './database.config';
 
-export const configurations = () => [
-  registerAs('app', () => appConfigs),
-  registerAs('database', () => databaseConfig),
-];
+export default [appConfig, databaseConfig];

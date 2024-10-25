@@ -1,7 +1,8 @@
 import { NODE_ENVIORNMENTS } from '@app/common/constants/configurations';
 import { DB_TYPE } from '@app/common/constants/database';
+import { registerAs } from '@nestjs/config';
 
-export const databaseConfig = {
+export const getDatabaseConfig = () => ({
   type: DB_TYPE,
   host: process.env.DB_HOST,
   port: +process.env.DB_PORT,
@@ -9,5 +10,7 @@ export const databaseConfig = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   autoLoadEntities: true,
-  synchronize: false
-};
+  synchronize: false,
+});
+
+export const databaseConfig = registerAs('database', getDatabaseConfig);
