@@ -1,4 +1,4 @@
-import { NODE_ENVIORNMENTS } from '../constants/configurations';
+import { NODE_ENVIORNMENTS } from '../constants/configs.constants';
 
 export interface IAppConfigurations {
   host: string;
