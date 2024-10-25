@@ -22,7 +22,8 @@
     "paths": {
       "@app/*": ["./*"],
       "@modules/*": ["./modules/*"],
-      "@common/*": ["./common/*"]
+      "@common/*": ["./common/*"],
+      "@configurations/*": ["./configurations/*"]
     }
   }
 }

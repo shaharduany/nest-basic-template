@@ -89,6 +89,7 @@
   "_moduleAliases": {
     "@app": "./dist",
     "@modules": "./dist/modules",
-    "@common": "./dist/common"
+    "@common": "./dist/common",
+    "@configurations": "./dist/configurations"
   }
 }

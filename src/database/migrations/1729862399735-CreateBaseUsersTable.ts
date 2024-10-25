@@ -1,4 +1,4 @@
-import { ColumnType } from '@app/common/constants/database';
+import { ColumnType } from '@common/constants/database.constants';
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateBaseUsersTable1729862399735 implements MigrationInterface {

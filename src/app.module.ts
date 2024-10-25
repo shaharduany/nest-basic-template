@@ -7,7 +7,7 @@ import { IDbConfigurations } from '@common/interfaces/configs.inteface';
 import { HealthCheckModule } from '@modules/health-check/health-check.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
-import configurations from './configurations/configurations';
+import configurations from '@configurations/configurations';
 
 @Module({
   imports: [
