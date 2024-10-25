@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { configurations } from '@app/configurations/configurations';
 import { HttpModule } from '@nestjs/axios';
-import { IHttpRequestConfigs } from '@app/common/interfaces/configurations.inteface';
-import { UsersModule } from './users/users.module';
-import { HealthCheckModule } from './health-check/health-check.module';
+import { IHttpRequestConfigs } from '@common/interfaces/configurations.inteface';
+
+import { configurations } from '@app/configurations/configurations';
+import { UsersModule } from '@modules/users/users.module';
+import { HealthCheckModule } from '@modules/health-check/health-check.module';
 
 @Module({
   imports: [
