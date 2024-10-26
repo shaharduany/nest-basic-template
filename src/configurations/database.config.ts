@@ -1,5 +1,9 @@
-import { DB_TYPE } from '@app/common/constants/database.constants';
+import {
+  DatabaseTypes,
+  DB_TYPE,
+} from '@app/common/constants/database.constants';
 import { registerAs } from '@nestjs/config';
+import * as Joi from 'joi';
 
 export const getDatabaseConfig = () => ({
   type: DB_TYPE,
@@ -13,3 +17,15 @@ export const getDatabaseConfig = () => ({
 });
 
 export const databaseConfig = registerAs('database', getDatabaseConfig);
+
+export const databaseConfigValidations = Joi.object({
+  type: Joi.string()
+    .allow(DatabaseTypes.mariadb, DatabaseTypes.mysql)
+    .required(),
+  host: Joi.string().default('localhost'),
+  port: Joi.number().required(),
+  database: Joi.string().required(),
+  username: Joi.string().required(),
+  autoLoadEntities: Joi.bool().optional(),
+  synchronize: Joi.bool().allow(false),
+});

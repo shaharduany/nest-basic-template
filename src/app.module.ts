@@ -7,7 +7,11 @@ import { IDbConfigurations } from '@common/interfaces/configs.inteface';
 import { HealthCheckModule } from '@modules/health-check/health-check.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
-import configurations from '@configurations/configurations';
+import { AuthModule } from './modules/auth/auth.module';
+import {
+  configurations,
+  configValidations,
+} from '@configurations/configurations';
 
 @Module({
   imports: [
@@ -15,6 +19,7 @@ import configurations from '@configurations/configurations';
       isGlobal: true,
       envFilePath: '.env',
       load: configurations,
+      validationSchema: configValidations,
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -24,6 +29,7 @@ import configurations from '@configurations/configurations';
     }),
     HealthCheckModule,
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

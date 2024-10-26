@@ -1,4 +1,9 @@
-export const DB_TYPE: 'mysql' | 'mariadb' = 'mysql';
+export enum DatabaseTypes {
+  mysql = 'mysql',
+  mariadb = 'mariadb',
+}
+
+export const DB_TYPE: DatabaseTypes = DatabaseTypes.mysql;
 
 export enum ColumnType {
   CHAR = 'CHAR',
