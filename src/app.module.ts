@@ -12,6 +12,7 @@ import {
   configurations,
   configValidations,
 } from '@configurations/configurations';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import {
     HealthCheckModule,
     UserModule,
     AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
