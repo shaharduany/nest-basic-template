@@ -6,8 +6,7 @@ import { IDbConfigurations } from '@common/interfaces/configs.inteface';
 
 import { HealthCheckModule } from '@modules/health-check/health-check.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './modules/user/user.module';
-import { AuthModule } from './modules/auth/auth.module';
+
 import {
   configurations,
   configValidations,
@@ -29,8 +28,6 @@ import { UsersModule } from './modules/users/users.module';
         configService.get<IDbConfigurations>('database'),
     }),
     HealthCheckModule,
-    UserModule,
-    AuthModule,
     UsersModule,
   ],
   controllers: [AppController],
