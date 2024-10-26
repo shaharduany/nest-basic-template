@@ -4,6 +4,7 @@ import {
 } from '@app/common/constants/database.constants';
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 export const getDatabaseConfig = () => ({
   type: DB_TYPE,
@@ -14,6 +15,7 @@ export const getDatabaseConfig = () => ({
   password: process.env.DB_PASSWORD,
   autoLoadEntities: true,
   synchronize: false,
+  namingStrategy: new SnakeNamingStrategy(),
 });
 
 export const databaseConfig = registerAs('database', getDatabaseConfig);
