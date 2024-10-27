@@ -3,6 +3,8 @@ import { UserSchema } from './schemas/users.schema';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IUser } from '../interfaces/users.interface';
 import { Injectable } from '@nestjs/common';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { hashValue } from '@app/common/helpers/encryption.helpers';
 
 @Injectable()
 export class UsersRepository extends Repository<UserSchema> {
@@ -19,5 +21,12 @@ export class UsersRepository extends Repository<UserSchema> {
 
   public findAll(): Promise<IUser[]> {
     return this.nativeRepository.find();
+  }
+
+  public async store(createUserDto: CreateUserDto): Promise<IUser> {
+    createUserDto.password = await hashValue(createUserDto.password);
+    this.nativeRepository.create()
+    const user = this.nativeRepository.create(createUserDto);
+    return user;
   }
 }
