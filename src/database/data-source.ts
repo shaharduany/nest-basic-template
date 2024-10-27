@@ -1,10 +1,11 @@
 import 'dotenv/config';
-import { getDatabaseConfig } from '@configurations/database.config';
+
 import { DataSource } from 'typeorm';
 import { migrations } from './migrations/index';
+import { getSqlDbConfig } from '@app/configurations/database/sqlDb.config';
 
 const AppDataSource: DataSource = new DataSource({
-  ...getDatabaseConfig(),
+  ...getSqlDbConfig(),
   migrations,
 });
 

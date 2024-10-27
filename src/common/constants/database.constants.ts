@@ -1,9 +1,12 @@
 export enum DatabaseTypes {
   mysql = 'mysql',
   mariadb = 'mariadb',
+  mongodb = 'mongodb',
 }
 
-export const DB_TYPE: DatabaseTypes = DatabaseTypes.mysql;
+export const usedSqlDatabase = DatabaseTypes.mariadb;
+
+export const usedDocumentDb = DatabaseTypes.mongodb;
 
 export enum ColumnType {
   CHAR = 'CHAR',

@@ -23,3 +23,7 @@ export interface IConfigurations {
   database: IDbConfigurations;
   httpRequests: IHttpRequestConfigs;
 }
+
+export interface IMongoDbConfigurations {
+  uri: string;
+}

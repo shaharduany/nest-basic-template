@@ -1,10 +1,5 @@
-import * as Joi from 'joi';
 import { appConfig, appConfigValidations } from './app.config';
-import { databaseConfig, databaseConfigValidations } from './database.config';
+import { sqlDbConfig } from './database/sqlDb.config';
+import { documentDbConfig } from './database/mongodb.config';
 
-export const configurations = [appConfig, databaseConfig];
-
-export const configValidations = Joi.object({
-  app: appConfigValidations,
-  database: databaseConfigValidations,
-});
+export const configurations = [appConfig, sqlDbConfig, documentDbConfig];
