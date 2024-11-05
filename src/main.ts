@@ -5,7 +5,7 @@ import {
   RequestMethod,
   ValidationPipe,
 } from '@nestjs/common';
-import { MyConfigsService } from './modules/my-configs/my-configs.service';
+import { MyConfigsService } from './core-nodules/my-configs/my-configs.service';
 
 if (!process.env.IS_DEVLOPMENT) {
   require('module-alias/register');

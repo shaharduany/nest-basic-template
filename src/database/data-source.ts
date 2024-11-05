@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import { DataSource } from 'typeorm';
 import { migrations } from './migrations/index';
-import { configurations } from '@app/modules/my-configs/configurations';
+import { configurations } from '@app/core-nodules/my-configs/configurations';
 
 const AppDataSource: DataSource = new DataSource({
   ...configurations().sqlDatabase,
