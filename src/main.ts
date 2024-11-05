@@ -5,6 +5,7 @@ import {
   RequestMethod,
   ValidationPipe,
 } from '@nestjs/common';
+import { MyConfigsService } from './modules/my-configs/my-configs.service';
 
 if (!process.env.IS_DEVLOPMENT) {
   require('module-alias/register');
@@ -16,6 +17,7 @@ async function bootstrap() {
     exclude: [{ path: 'health-check', method: RequestMethod.GET }],
   });
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  const configService = app.get(MyConfigsService);
+  await app.listen(configService.getPort());
 }
 bootstrap();

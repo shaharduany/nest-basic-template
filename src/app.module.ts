@@ -1,47 +1,36 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import {
-  IDbConfigurations,
-  IMongoDbConfigurations,
-} from '@common/interfaces/configs.inteface';
 
 import { HealthCheckModule } from '@modules/health-check/health-check.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-import { configurations } from '@configurations/configurations';
 import { UsersModule } from './modules/users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import {
-  usedDocumentDb,
-  usedSqlDatabase,
-} from './common/constants/database.constants';
+import { MyConfigsModule } from './modules/my-configs/my-configs.module';
+import { ConfigModule } from '@nestjs/config';
+import { configurations } from './modules/my-configs/configurations';
+import { MyConfigsService } from './modules/my-configs/my-configs.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-      load: configurations,
+      load: [configurations],
     }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) =>
-        configService.get<IDbConfigurations>(usedSqlDatabase),
+      imports: [MyConfigsModule],
+      inject: [MyConfigsService],
+      useFactory: async (myConfigService: MyConfigsService) =>
+        myConfigService.getSqlDatabaseConfig(),
     }),
     MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => {
-        const config =
-          configService.get<IMongoDbConfigurations>(usedDocumentDb);
-        return config;
-      },
+      imports: [MyConfigsModule],
+      inject: [MyConfigsService],
+      useFactory: async (myConfigService: MyConfigsService) =>
+        myConfigService.getMongoDatabaseConfig(),
     }),
     HealthCheckModule,
     UsersModule,
+    MyConfigsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
