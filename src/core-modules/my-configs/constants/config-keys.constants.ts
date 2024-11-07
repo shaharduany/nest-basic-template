@@ -3,4 +3,3 @@ export enum ConfigKeys {
   mongoDatabase = 'mongoDatabase',
   appPort = 'app.port',
 }
-

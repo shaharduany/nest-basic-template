@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { IMongoDatabaseConfig, ISqlDatabaseConfig } from './interfaces/my-configs.interface';
+import {
+  IMongoDatabaseConfig,
+  ISqlDatabaseConfig,
+} from './interfaces/my-configs.interface';
 import { ConfigKeys } from './constants/config-keys.constants';
 
 @Injectable()

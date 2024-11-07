@@ -9,4 +9,3 @@ import { UserSchema } from './schemas/users.schema';
   exports: [UsersRepository],
 })
 export class UsersRepositoryModule {}
-

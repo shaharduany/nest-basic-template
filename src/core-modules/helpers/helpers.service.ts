@@ -23,4 +23,3 @@ export class HelpersService {
     return val;
   }
 }
-

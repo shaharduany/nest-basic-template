@@ -42,4 +42,3 @@ export interface IConfigurations {
   sqlDatabase: ISqlDatabaseConfig;
   mongoDatabase: IMongoDatabaseConfig;
 }
-

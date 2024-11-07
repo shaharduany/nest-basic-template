@@ -9,4 +9,3 @@ import { configurations } from './configurations';
   exports: [MyConfigsService],
 })
 export class MyConfigsModule {}
-
