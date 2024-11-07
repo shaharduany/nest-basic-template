@@ -10,6 +10,7 @@ import { MyConfigsModule } from './core-nodules/my-configs/my-configs.module';
 import { ConfigModule } from '@nestjs/config';
 import { configurations } from './core-nodules/my-configs/configurations';
 import { MyConfigsService } from './core-nodules/my-configs/my-configs.service';
+import { HelpersModule } from './core-modules/helpers/helpers.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { MyConfigsService } from './core-nodules/my-configs/my-configs.service';
     HealthCheckModule,
     UsersModule,
     MyConfigsModule,
+    HelpersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
