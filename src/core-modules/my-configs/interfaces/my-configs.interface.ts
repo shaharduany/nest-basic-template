@@ -2,7 +2,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import {
   NodeEnviornments,
   SupportedDatabases,
-} from '../../constants/my-configs.constants';
+} from '../constants/my-configs.constants';
 
 export interface IAppConfig {
   host: string;

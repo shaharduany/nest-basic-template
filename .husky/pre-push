@@ -1,0 +1,1 @@
+npx npm-run-all --parallel test test:e2e
