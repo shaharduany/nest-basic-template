@@ -31,15 +31,15 @@ export const configurations = (): IConfigurations => {
         SupportedDatabases.mariadb,
       host: process.env.DB_HOST || 'localhost',
       port: +process.env.DB_PORT || 3306,
-      database: process.env.DB_NAME || 'app_catcher',
-      username: process.env.DB_USERNAME || 'root',
-      password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || 'nest_template',
+      username: process.env.DB_USERNAME || 'db',
+      password: process.env.DB_PASSWORD || 'db',
       autoLoadEntities: true,
       synchronize: false,
       namingStrategy: new SnakeNamingStrategy(),
     },
     mongoDatabase: {
-      uri: process.env.MONGO_URI || 'mongodb://localhost:27017/app_catcher',
+      uri: process.env.MONGO_URI || 'mongodb://localhost:27017/nest_template',
     },
   };
 };
