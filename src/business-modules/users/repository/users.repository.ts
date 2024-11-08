@@ -25,7 +25,7 @@ export class UsersRepository extends Repository<UserSchema> {
 
   public async store(createUserDto: CreateUserDto): Promise<IUser> {
     createUserDto.password = await hashValue(createUserDto.password);
-    this.nativeRepository.create()
+    this.nativeRepository.create();
     const user = this.nativeRepository.create(createUserDto);
     return user;
   }

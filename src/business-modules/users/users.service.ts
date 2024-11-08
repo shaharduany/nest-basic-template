@@ -7,7 +7,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 export class UsersService {
   private logger: Logger = new Logger(UsersService.name);
 
-  constructor(private readonly userRepository: UsersRepository) { }
+  constructor(private readonly userRepository: UsersRepository) {}
 
   public async getAllUsers(): Promise<IUser[]> {
     return this.userRepository.findAll();

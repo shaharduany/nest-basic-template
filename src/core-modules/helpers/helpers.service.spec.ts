@@ -39,7 +39,7 @@ describe('HelpersService', () => {
       const val = 'password';
       const hashedValue = await service.hashValue(val);
       const isMatched = await service.isHashMatch(val, hashedValue);
-      
+
       expect(isMatched).toBe(true);
     });
 
@@ -47,9 +47,8 @@ describe('HelpersService', () => {
       const val = 'password';
       const hashedValue = await service.hashValue(val);
       const isMatched = await service.isHashMatch('wrongPassword', hashedValue);
-      
+
       expect(isMatched).toBe(false);
     });
   });
 });
-

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  api:
+    image: nest-basic-template:latest
+    build:
+      context: .
+      dockerfile: nest.dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/db
+      - DB_TYPE=mariadb
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_NAME=db
+    networks:
+      - app-network
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3555:3306"
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  mariadb_data:
