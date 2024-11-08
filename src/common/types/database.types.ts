@@ -1,1 +1,3 @@
-export type Id = number;
+import { ObjectId } from "mongoose";
+
+export type Id = number | ObjectId;
