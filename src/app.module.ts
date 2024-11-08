@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -12,9 +12,12 @@ import { configurations } from './core-modules/my-configs/configurations';
 import { MyConfigsService } from './core-modules/my-configs/my-configs.service';
 import { HelpersModule } from './core-modules/helpers/helpers.module';
 import { MyLoggerModule } from './core-modules/my-logger/my-logger.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { RequestLoggerMiddleware } from './common/middlewares/request-logger.middleware';
 
 @Module({
   imports: [
+    EventEmitterModule.forRoot(),
     ConfigModule.forRoot({
       load: [configurations],
       envFilePath: '.env',
@@ -40,4 +43,8 @@ import { MyLoggerModule } from './core-modules/my-logger/my-logger.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(RequestLoggerMiddleware).forRoutes('*');
+  }
+}
