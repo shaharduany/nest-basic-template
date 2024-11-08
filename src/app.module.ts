@@ -17,6 +17,7 @@ import { MyLoggerModule } from './core-modules/my-logger/my-logger.module';
   imports: [
     ConfigModule.forRoot({
       load: [configurations],
+      envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [MyConfigsModule],
