@@ -19,4 +19,3 @@ export class RequestLoggerMiddleware implements NestMiddleware {
     if (next) next();
   }
 }
-

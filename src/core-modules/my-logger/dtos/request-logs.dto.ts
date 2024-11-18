@@ -33,4 +33,3 @@ export class RequestLogsDto {
     this.respondedAt = new Date().toISOString();
   }
 }
-

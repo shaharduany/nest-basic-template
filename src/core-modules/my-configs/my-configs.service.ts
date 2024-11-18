@@ -34,4 +34,8 @@ export class MyConfigsService {
   public isDevelopmentEnv(): boolean {
     return this.getEnv() === NodeEnviornments.development;
   }
+
+  public isNodeEnv(env: NodeEnviornments): boolean {
+    return this.getEnv() === env;
+  }
 }

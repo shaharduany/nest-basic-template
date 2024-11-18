@@ -14,9 +14,12 @@ import { HelpersModule } from './core-modules/helpers/helpers.module';
 import { MyLoggerModule } from './core-modules/my-logger/my-logger.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { RequestLoggerMiddleware } from './common/middlewares/request-logger.middleware';
+import { MyCronsModule } from './core-modules/my-crons/my-crons.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     EventEmitterModule.forRoot(),
     ConfigModule.forRoot({
       load: [configurations],
@@ -39,6 +42,7 @@ import { RequestLoggerMiddleware } from './common/middlewares/request-logger.mid
     MyConfigsModule,
     HelpersModule,
     MyLoggerModule,
+    MyCronsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
