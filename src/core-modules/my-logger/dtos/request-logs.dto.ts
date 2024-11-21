@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 export class RequestLogsDto {
   public ip: string;
-  public headers: Object;
+  public headers: object;
   public method: string;
   public originalUrl: string;
   public userAgent: string;

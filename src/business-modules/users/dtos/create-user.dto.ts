@@ -1,9 +1,4 @@
-import {
-  IsAscii,
-  IsNotEmpty,
-  IsString,
-  isStrongPassword,
-} from 'class-validator';
+import { IsAscii, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()

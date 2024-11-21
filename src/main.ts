@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import {
-  ClassSerializerInterceptor,
   INestApplication,
   RequestMethod,
   ValidationPipe,
@@ -10,6 +9,7 @@ import { MyConfigsService } from './core-modules/my-configs/my-configs.service';
 import { MyLoggerService } from './core-modules/my-logger/my-logger.service';
 
 if (!process.env.IS_DEVLOPMENT) {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('module-alias/register');
 }
 

@@ -1,11 +1,11 @@
 import typescript from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
+import nestjsPlugin from 'eslint-plugin-nestjs';
 
 export default [
-  prettier,
   {
-    files: ['src/**/*.ts'], 
+    files: ['src/**/*.ts'],
     languageOptions: {
       parser,
       parserOptions: {
@@ -18,12 +18,26 @@ export default [
         jest: true,
       },
     },
-    plugins: { '@typescript-eslint/eslint-plugin': typescript },
+    plugins: {
+      '@typescript-eslint': typescript,
+      nestjs: nestjsPlugin,
+    },
     rules: {
-      '@typescript-eslint/interface-name-prefix': 'off',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
+      ...prettier.rules,
+      ...typescript.configs['recommended'].rules,
+      ...nestjsPlugin.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
 ];

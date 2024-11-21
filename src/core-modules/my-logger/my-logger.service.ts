@@ -14,7 +14,7 @@ export class MyLoggerService extends ConsoleLogger {
   }
 
   @OnEvent(ON_LOG_REQUEST)
-  public logRequest(dto: RequestLogsDto): void {
+  public logRequest(_dto: RequestLogsDto): void {
     if (!this.myConfigsService.isDevelopmentEnv()) {
       return; // Handle in production per project requirements
     }
