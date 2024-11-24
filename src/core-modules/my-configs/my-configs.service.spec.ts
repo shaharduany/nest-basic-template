@@ -53,12 +53,33 @@ describe('MyConfigsService', () => {
     });
 
     it('should return an object', () => {
-      expect(typeof service.getMongoDatabaseConfig()).toBe('object');
+      const mongoDatabaseConfig = service.getMongoDatabaseConfig();
+      expect(typeof mongoDatabaseConfig).toBe('object');
     });
 
     it('should return an object with the correct properties', () => {
       const mongoDatabaseConfig = service.getMongoDatabaseConfig();
       expect(mongoDatabaseConfig).toHaveProperty('uri');
+    });
+  });
+
+  describe('getInternalDomains', () => {
+    it('should return the internal domains', () => {
+      expect(service.getInternalDomains()).toBeDefined();
+    });
+
+    it('should return an array of strings', () => {
+      const internalDomains = service.getInternalDomains();
+      const isArray = Array.isArray(internalDomains);
+      expect(isArray).toBe(true);
+    });
+
+    it('should return array of trimmed strings', () => {
+      const internalDomains = service.getInternalDomains();
+      const isTrimmed = internalDomains.every(
+        (domain) => domain.trim() === domain,
+      );
+      expect(isTrimmed).toBe(true);
     });
   });
 });

@@ -3,4 +3,5 @@ export enum ConfigKeys {
   mongoDatabase = 'mongoDatabase',
   appPort = 'app.port',
   nodeEnv = 'app.nodeEnv',
+  internalDomains = 'app.internalDomains',
 }

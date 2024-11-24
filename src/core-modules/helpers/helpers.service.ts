@@ -22,4 +22,8 @@ export class HelpersService {
     const val = await hash(value, this.SALT_ROUNDS);
     return val;
   }
+
+  public generateUUID(): string {
+    return crypto.randomUUID();
+  }
 }

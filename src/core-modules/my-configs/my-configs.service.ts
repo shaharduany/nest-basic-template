@@ -38,4 +38,16 @@ export class MyConfigsService {
   public isNodeEnv(env: NodeEnviornments): boolean {
     return this.getEnv() === env;
   }
+
+  public getInternalDomains(): string[] {
+    return this.configService.get<string[]>(ConfigKeys.internalDomains);
+  }
+
+  public getServiceName(): string {
+    return this.configService.get<string>('app.serviceName');
+  }
+
+  public getInternalApiKey(): string {
+    return this.configService.get<string>('app.internalApiKey');
+  }
 }

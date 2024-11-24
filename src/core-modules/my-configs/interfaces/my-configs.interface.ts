@@ -10,6 +10,9 @@ export interface IAppConfig {
   nodeEnv: NodeEnviornments;
   jwtSecret: string;
   certPath: string;
+  internalDomains: string[];
+  serviceName: string;
+  internalApiKey: string;
 }
 
 export interface ISentryConfig {
