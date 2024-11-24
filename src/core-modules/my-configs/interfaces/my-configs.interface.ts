@@ -1,13 +1,13 @@
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import {
-  NodeEnviornments,
+  NodeEnvironments,
   SupportedDatabases,
 } from '../constants/my-configs.constants';
 
 export interface IAppConfig {
   host: string;
   port: number | string;
-  nodeEnv: NodeEnviornments;
+  nodeEnv: NodeEnvironments;
   jwtSecret: string;
   certPath: string;
   internalDomains: string[];

@@ -1,4 +1,4 @@
-export enum NodeEnviornments {
+export enum NodeEnvironments {
   development = 'development',
   production = 'production',
   test = 'test',

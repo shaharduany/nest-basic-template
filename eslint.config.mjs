@@ -2,6 +2,7 @@ import typescript from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
 import nestjsPlugin from 'eslint-plugin-nestjs';
+import spellchecker from 'eslint-plugin-spellcheck';
 
 export default [
   {
@@ -21,6 +22,7 @@ export default [
     plugins: {
       '@typescript-eslint': typescript,
       nestjs: nestjsPlugin,
+      spellcheck: spellchecker,
     },
     rules: {
       ...prettier.rules,
@@ -36,6 +38,42 @@ export default [
           destructuredArrayIgnorePattern: '^_',
           varsIgnorePattern: '^_',
           ignoreRestSiblings: true,
+        },
+      ],
+      'spellcheck/spell-checker': [
+        1,
+        {
+          comments: true,
+          strings: true,
+          identifiers: true,
+          templates: true,
+          lang: 'en_US',
+          skipWords: [
+            'dict',
+            'aff',
+            'hunspellchecker',
+            'hunspell',
+            'utils',
+            'nullable',
+            'sql',
+            'dto',
+            'axios',
+            'cron',
+            'crons',
+            'uri',
+            'dsn',
+            'mongodb',
+            'mariadb',
+            'mysql',
+            'joi',
+            'localhost',
+            'orm',
+            'ascii',
+            'repl',
+          ],
+          skipIfMatch: ['http://[^s]*', '^[-\\w]+/[-\\w\\.]+$'],
+          skipWordIfMatch: ['^foobar.*$'],
+          minLength: 3,
         },
       ],
     },

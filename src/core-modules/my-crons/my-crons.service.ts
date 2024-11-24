@@ -2,7 +2,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import { CronExpression, SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { MyConfigsService } from '../my-configs/my-configs.service';
-import { NodeEnviornments } from '../my-configs/constants/my-configs.constants';
+import { NodeEnvironments } from '../my-configs/constants/my-configs.constants';
 
 @Injectable()
 export class MyCronsService {
@@ -16,7 +16,7 @@ export class MyCronsService {
   ) {}
 
   public isCronEnvironment(): boolean {
-    return this.myConfigService.isNodeEnv(NodeEnviornments.cron);
+    return this.myConfigService.isNodeEnv(NodeEnvironments.cron);
   }
 
   public registerCron(

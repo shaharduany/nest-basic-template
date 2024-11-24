@@ -1,6 +1,6 @@
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import {
-  NodeEnviornments,
+  NodeEnvironments,
   SupportedDatabases,
 } from '../constants/my-configs.constants';
 import { IConfigurations } from '../interfaces/my-configs.interface';
@@ -12,8 +12,8 @@ export const configurations = (): IConfigurations => {
       host: process.env.HOST || 'localhost',
       port: +process.env.PORT,
       nodeEnv:
-        NodeEnviornments[process.env.NODE_ENV?.toLowerCase()] ||
-        NodeEnviornments.development,
+        NodeEnvironments[process.env.NODE_ENV?.toLowerCase()] ||
+        NodeEnvironments.development,
       jwtSecret: process.env.JWT_SECRET,
       certPath: process.env.NODE_EXTRA_CA_CERTS,
       internalDomains: process.env.INTERNAL_DOMAINS?.split(',').map((domain) =>
@@ -26,8 +26,8 @@ export const configurations = (): IConfigurations => {
       dsn: process.env.SENTRY_DSN,
       environment: process.env.SENTRY_ENVIRONMENT || 'development',
       enabled:
-        NodeEnviornments[process.env.NODE_ENV?.toLowerCase()] !==
-        NodeEnviornments.development,
+        NodeEnvironments[process.env.NODE_ENV?.toLowerCase()] !==
+        NodeEnvironments.development,
       tracesSampleRate: 1.0,
       profilesSampleRate: 1.0,
     },

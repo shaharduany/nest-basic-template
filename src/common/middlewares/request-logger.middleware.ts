@@ -8,11 +8,11 @@ import { RequestLogsDto } from '@app/core-modules/my-logger/dtos/request-logs.dt
 export class RequestLoggerMiddleware implements NestMiddleware {
   constructor(private readonly eventEmitter: EventEmitter2) {}
 
-  use(req: Request, res: Response, next: NextFunction) {
-    const dto = RequestLogsDto.fromRequest(req);
+  use(request: Request, response: Response, next: NextFunction) {
+    const dto = RequestLogsDto.fromRequest(request);
 
-    req.on('close', async () => {
-      dto.recordResponse(res);
+    request.on('close', async () => {
+      dto.recordResponse(response);
       this.eventEmitter.emit(ON_LOG_REQUEST, dto);
     });
 

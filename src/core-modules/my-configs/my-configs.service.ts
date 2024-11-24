@@ -5,7 +5,7 @@ import {
   ISqlDatabaseConfig,
 } from './interfaces/my-configs.interface';
 import { ConfigKeys } from './constants/config-keys.constants';
-import { NodeEnviornments } from './constants/my-configs.constants';
+import { NodeEnvironments } from './constants/my-configs.constants';
 
 @Injectable()
 export class MyConfigsService {
@@ -27,15 +27,15 @@ export class MyConfigsService {
     return this.configService.get<number>(ConfigKeys.appPort);
   }
 
-  public getEnv(): NodeEnviornments {
-    return this.configService.get<NodeEnviornments>(ConfigKeys.nodeEnv);
+  public getEnv(): NodeEnvironments {
+    return this.configService.get<NodeEnvironments>(ConfigKeys.nodeEnv);
   }
 
   public isDevelopmentEnv(): boolean {
-    return this.getEnv() === NodeEnviornments.development;
+    return this.getEnv() === NodeEnvironments.development;
   }
 
-  public isNodeEnv(env: NodeEnviornments): boolean {
+  public isNodeEnv(env: NodeEnvironments): boolean {
     return this.getEnv() === env;
   }
 
