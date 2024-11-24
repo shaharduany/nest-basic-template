@@ -3,9 +3,11 @@ import { MyCronsService } from './my-crons.service';
 import { MyConfigsModule } from '../my-configs/my-configs.module';
 import { ScheduleModule } from '@nestjs/schedule';
 
-@Module({
-  imports: [MyConfigsModule, ScheduleModule],
+export const getMyCronsModuleMetadata = () => ({
+  imports: [MyConfigsModule, ScheduleModule.forRoot()],
   providers: [MyCronsService],
   exports: [MyCronsService],
-})
+});
+
+@Module(getMyCronsModuleMetadata())
 export class MyCronsModule {}

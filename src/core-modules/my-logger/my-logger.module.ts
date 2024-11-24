@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { MyLoggerService } from './my-logger.service';
 import { MyConfigsModule } from '../my-configs/my-configs.module';
 
-@Module({
+export const getMyLoggerModuleMetadata = () => ({
   imports: [MyConfigsModule],
   providers: [MyLoggerService],
-})
+});
+
+@Module(getMyLoggerModuleMetadata())
 export class MyLoggerModule {}

@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { HelpersService } from './helpers.service';
 
-@Module({
+export const getHelpersModuleMetadata = () => ({
   providers: [HelpersService],
   exports: [HelpersService],
-})
+});
+
+@Module(getHelpersModuleMetadata())
 export class HelpersModule {}

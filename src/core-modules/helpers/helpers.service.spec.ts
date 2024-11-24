@@ -1,13 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HelpersService } from './helpers.service';
+import { getHelpersModuleMetadata } from './helpers.module';
 
 describe('HelpersService', () => {
   let service: HelpersService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [HelpersService],
-    }).compile();
+    const module: TestingModule = await Test.createTestingModule(
+      getHelpersModuleMetadata(),
+    ).compile();
 
     service = module.get<HelpersService>(HelpersService);
   });

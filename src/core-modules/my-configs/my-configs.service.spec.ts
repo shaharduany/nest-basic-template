@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MyConfigsService } from './my-configs.service';
-import { MyConfigsModule } from './my-configs.module';
+import { getMyConfigsModuleMetadata } from './my-configs.module';
 
 describe('MyConfigsService', () => {
   let service: MyConfigsService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [MyConfigsModule],
-    }).compile();
+    const module: TestingModule = await Test.createTestingModule(
+      getMyConfigsModuleMetadata(),
+    ).compile();
 
     service = module.get<MyConfigsService>(MyConfigsService);
   });
